@@ -14,7 +14,7 @@ class Board extends React.Component {
       board.push(<div key={i} className="board-row">{columns}</div>);
     }
 
-    return board;
+    return board; 
   }
 
   renderSquare(i) {

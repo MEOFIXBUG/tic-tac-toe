@@ -25,15 +25,15 @@ const calculateWinner = (squares) => {
 
 const getLocation = (move) => {
   const locationMap = {
-    0: 'row: 1, col: 1',
-    1: 'row: 1, col: 2',
-    2: 'row: 1, col: 3',
-    3: 'row: 2, col: 1',
-    4: 'row: 2, col: 2',
-    5: 'row: 2, col: 3',
-    6: 'row: 3, col: 1',
-    7: 'row: 3, col: 2',
-    8: 'row: 3, col: 3',
+    0: 'dòng: 1, cột: 1',
+    1: 'dòng: 1, cột: 2',
+    2: 'dòng: 1, cột: 3',
+    3: 'dòng: 2, cột: 1',
+    4: 'dòng: 2, cột: 2',
+    5: 'dòng: 2, cột: 3',
+    6: 'dòng: 3, cột: 1',
+    7: 'dòng: 3, cột: 2',
+    8: 'dòng: 3, cột: 3',
   };
 
   return locationMap[move];
@@ -101,7 +101,7 @@ class Game extends React.Component {
 
     const moves = history.map((step, move) => {
       const currentLocation = step.currentLocation ? `(${step.currentLocation})` : '';
-      const desc = step.stepNumber ? `Go to move #${step.stepNumber}` : 'Go to game start';
+      const desc = step.stepNumber ? `Move #${step.stepNumber}` : 'Start';
       const classButton = move === this.state.currentStepNumber ? 'button--green' : '';
 
       return (
@@ -114,10 +114,13 @@ class Game extends React.Component {
     });
 
     let status;
+    let statusClass="status";
     if (winner) {
       status = `Winner ${winner}`;
+      statusClass="statusWinner";
     } else if (history.length === 10) {
       status = 'Draw. No one won.';
+      statusClass="statusDraw"
     } else {
       status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     }
@@ -132,7 +135,7 @@ class Game extends React.Component {
           />
         </div>
         <div className="game-info">
-          <div>{status}</div>
+          <div className={`${statusClass}`}>{status}</div>
           <button className="button" onClick={() => this.sortMoves()}>
             Sort moves
           </button>

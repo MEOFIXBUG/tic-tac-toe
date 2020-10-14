@@ -17,7 +17,14 @@ ul {
 .status {
   margin-bottom: 10px;
 }
-
+.statusWinner{
+  color: rgb(243, 13, 13);
+  font-weight: bold;
+}
+.statusDraw{
+  color: #999;
+  font-weight: bold;
+}
 .square {
   background: #fff;
   border: 1px solid #999;
@@ -34,7 +41,7 @@ ul {
 }
 
 .square--green {
-  background: green;
+  background: #4c87af;
 }
 
 .square:focus {
@@ -55,7 +62,7 @@ ul {
 }
 
 .button {
-  background-color: #555555; /* Green */
+  background-color: #555555; /* Gray */
   border: none;
   color: #fff;
   padding: 5px 10px;
@@ -72,8 +79,8 @@ ul {
 }
 
 .button--new-game {
-  background-color: #bb3219;
-  color: #000;
+  background-color:  #adaf4c;
+  color: #fff;
   font-weight: bold;
   margin-left: 2px;
 }
